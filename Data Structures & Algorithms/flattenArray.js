@@ -18,7 +18,6 @@ const flattenArray = (input) => {
     }
     return result;
 }
-
 console.log(flattenArray(input));
 
 // Tests recusrion knowledge and methods Array.isArray() and Array1.concat(Array2)
