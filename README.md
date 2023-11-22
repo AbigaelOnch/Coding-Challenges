@@ -1,5 +1,5 @@
 # Coding-Challenges
-Coding challenges to practice JS, HTML, CSS and other JS Framerworks.
+Coding challenges to practice JS, HTML, CSS and React.
 
 
 ## Javascript Utilities
