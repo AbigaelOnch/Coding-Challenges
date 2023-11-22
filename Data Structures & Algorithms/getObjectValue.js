@@ -39,13 +39,17 @@ const get = (objectParam, pathParam, defaultValue) => {
     const pathValues = Array.isArray(pathParam) ? pathParam : pathParam.split('.');
     let index = 0;
     let currObj = objectParam;
+    console.log("currObj", currObj == null);
+    console.log("pathValues", pathValues.length);
     while (currObj != null && index < pathValues.length) { // null check so we bypass the while loop if object is empty
         currObj = currObj[ String(pathValues[index])]; // john['profile']
         index++
     }
 
+    // index is 0 -> skipped loop (0 && 1 ) =>  0
     // if index is not the same as length, we skipped the while loop & we have an empty object so return undefined 
     const value = index && index === pathValues.length ? currObj : undefined;
+    console.log(index && index === pathValues.length); // (0 && 1 ) =>  0
     return value == undefined ? defaultValue : currObj;
 
 }
@@ -67,7 +71,7 @@ const jane = {
 
 const nobody = {};
 
-console.log(get(john, 'profile.name.firstName')); // 'John'
-console.log(get(john, 'profile.gender')); // 'Male'
-console.log(get(jane, 'profile.name.firstName')); // undefined
-console.log(get(nobody, 'profile.name.firstName')); // undefined
+// console.log(get(john, 'profile.name.firstName')); // 'John'
+// console.log(get(john, 'profile.gender')); // 'Male'
+// console.log(get(jane, 'profile.name.firstName')); // undefined
+console.log(get(nobody, [])); // undefined
